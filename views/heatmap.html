@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Heat Map</title>
+        <link href="css/bootstrap.min.css" rel="stylesheet" />
+        <link href="css/dashboard.css" rel="stylesheet" />
+        <style>
+            body, html { margin:0; padding:0; height:100%;background-color: darkred;}
+            body { font-family:sans-serif; }
+            body * { font-weight:200;}
+            #heatmapContainerWrapper { position:absolute; display:none;}
+            canvas { height: 100%;width: 100%;}
+            .heatmap-canvas{background-color: transparent;}
+            .sweet-alert button{background: darkred !important;}
+            .sweet-alert h2{color:darkred !important;}
+        </style>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+        <script src="js/sweetalert-dev.js"></script>
+  <link rel="stylesheet" href="css/sweetalert.css">
+  <link rel="stylesheet" href="css/demo.css">
+        <script src="js/heatmap.min.js"></script>
+        <script>
+
+            var s = [];
+            var data = {};
+            $(function() {
+                let params = (new URL(document.location)).searchParams;
+                u = params.get("u");
+                if(u !== null)
+                callajax(u);
+                $("#hmapbtn").click(function() {
+                    var hmurl = $("#hmurl").val();
+                    window.location.href = "/heatmap?u=" + hmurl;
+                })
+
+            });
+
+            function callajax(u) {
+                $("body").append('<div class="cssload-container"><div class="cssload-whirlpool"></div></div>');
+                            $.ajax({
+                    type: 'POST',
+                    data: {'hurl': u},
+                    url: 'http://localhost:5000/hmap',
+                    success: function(data) {
+                        if (data.length == 0) {
+                           swal("Data Not Found");
+                        } else {
+                            console.log(data);
+                            document.getElementById("hmapframe").src = u;
+                            $("#heatmapContainer").width(data[0].page_width);
+                            $("#heatmapContainer").height(data[0].page_height);
+
+                            $("#heatmapContainerWrapper").width(data[0].page_width);
+                            $("#heatmapContainerWrapper").height(data[0].page_height);
+
+                            $("#heatmapContainer").width(data[0].page_width);
+                            $("#heatmapContainer").height(data[0].page_height);
+
+                            $(".heatmap-canvas").width(data[0].page_width);
+                            $(".heatmap-canvas").height(data[0].page_height);
+                            var heatmap = h337.create({
+                                container: document.getElementById('heatmapContainer'),
+                                maxOpacity: .6,
+                                radius: 20,
+                                blur: .90,
+                                // backgroundColor with alpha so you can see through it
+                                //backgroundColor: 'rgba(0, 0, 58, 0.96)'
+                            });
+                            var heatmapContainer = document.getElementById('heatmapContainerWrapper');
+                            for (var i = 0; i < data.length; i++) {
+
+                                heatmap.addData({x: data[i].x, y: data[i].y});
+
+                            }
+                        }
+                          $(".cssload-container").remove();
+                            $("body").removeClass("ajax_loader");
+                        $("#heatmapContainerWrapper").show("slow");
+
+                    }
+                });
+            }
+
+        </script>
+    </head>
+       <body class="ajax_loader">
+          
+        <div class="heatmap-tools-bar">
+            <img src="img/logo.png"><span style="font-weight: bold;font-size: 18px;text-transform: uppercase;">Cherry</span>
+            <input type="text" placeholder="Enter url for heat map" id="hmurl" style="width:800px;margin-right: 15px;padding: 5px;color: black;">
+            <button type="button" id="hmapbtn" class="btn btn-danger">Get Heatmap</button>
+            <button type="button"onclick="javascript:location.reload();" class="btn btn-danger">Reload</button>
+        </div>
+
+        <div id="heatmapContainerWrapper">
+
+            <div id="heatmapContainer">
+                <iframe id="hmapframe" src="" frameborder="0" style="overflow:hidden;height:100%;width:100%" height="100%" width="100%"></iframe>
+
+            </div>
+
+        </div>
+
+    </body>
+</html>

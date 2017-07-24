@@ -1,0 +1,246 @@
+body {
+    background-color: #FFF;
+
+}
+
+
+.coligo {
+    color: #D0D0D0;
+    font-size: 0.8em;
+}
+
+.well {
+    text-align:center;
+
+    height: 100px;
+    margin-bottom: 20px;
+    /* background-color: #f5f5f5; */
+    border: 1px solid #e3e3e3;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+    background: transparent;
+}
+
+.dash-red {
+    color: #DD6161;
+}
+
+.sub-header{
+    color: #777779;
+    font-weight: 300;
+}
+.activemappointer{    
+    background: red;
+    border: 1px solid black;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    z-index: 999999;
+}
+.table>tbody>tr>td{    border-bottom:  1px solid #ddd;}
+iframe{width: 100%;height: 800px;}
+.modal-lg{width: 100%;height: 800px;}
+.modal-body{padding: 0px;}
+.modal-dialog{margin: 0px;}
+.liveActiviti{min-height: 600px;border: 1px solid #298ee9;width: 24%;box-shadow: 2px 2px 2px #888888;}
+.map{    min-height: 300px;
+         border: 1px solid gray;}
+
+/* Style the buttons that are used to open and close the accordion panel */
+.button.accordion {
+    /* background-color: #fff; */
+    color: #444;
+    cursor: pointer;
+
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+    min-height: 26px;
+    /* border: 1px solid #298ee9; */
+    margin-bottom: 5px;
+    /* box-shadow: 2px 2px 2px #888888; */
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.button.accordion.active, button.accordion:hover {
+    background-color: #ddd;
+}
+
+/* Style the accordion panel. Note: hidden by default */
+div.panel {
+    padding: 0 18px;
+    display: none;
+}
+
+
+.mo-x {
+    background: #fff;
+    width: 41px;
+}
+.mo-y{width: 100px;}
+.d-ip{width: 45px;}
+.d-br{width: 50px;}
+.d-clk{    background: darkred;
+           color: white;
+           text-align: center;}
+.d-ele{background: #EECF49;}
+.d-mr{font-size: 11px;}
+.titlebox h1{font-size: 22px;}
+.lf-menu li{list-style: none;padding-bottom: 9px;}
+.left-menu{
+    padding: 5px;   
+    min-height: 480px;
+    background: #91DCDF;
+    font-size: 16px;
+    border: 1px solid #298ee9;
+}
+.left-menu li a{    color: black;
+                    font-weight: bold;}
+
+/* click map */
+.clickmapgraph{
+    min-width: 1024px;min-height: 300px;
+}
+.ip-user{
+    min-width: 1024px;background: #fff;min-height: 100px;margin-top: 10px;border: 1px solid gray;
+}
+.ip-graph
+{
+
+    margin-right: -4px;
+    min-width: 50px;
+    min-height: 50px;
+    margin-top: 16px;
+    -ms-transform:rotate(270deg); /* IE 9 */
+    -moz-transform:rotate(270deg); /* Firefox */
+    -webkit-transform:rotate(270deg); /* Safari and Chrome */
+    -o-transform:rotate(270deg); /* Opera */
+}
+.inside-scrll{height: 300px;}
+.card.scrollme{margin-bottom: 0px;}
+.ruler-menu{
+    width: 100%;
+    display: inline-table;
+    position: absolute;
+    bottom: 0px;
+    list-style: none;
+    left: -25px;
+}
+.ruler-menu li{
+    border-top: 1px solid red;
+}
+.ruler-menu li.f1{height: 11px;}
+.ruler-menu li.f2,.ruler-menu li.f4{height: 19px;}
+.browser-prop{
+    display: inline-block;
+    height: 24px;
+    width: 24px;
+
+}
+.chrome{background:url(../img/chrome.png) no-repeat;background-size: 80%;}
+.firefox{background:url(../img/firefox.png) no-repeat;background-size: 80%;}
+.netscape{background:url(../img/netscape.png) no-repeat;background-size: 80%;}
+.safari{background:url(../img/safari.png) no-repeat;background-size: 80%;}
+.desktop{
+    background:url(../img/desktop.png) no-repeat;
+    display: inline-block;
+    height: 24px;
+    width: 24px;
+}
+.mobile{
+    background:url(../img/mobile.png) no-repeat;
+    display: inline-block;
+    height: 24px;
+    width: 24px;
+}
+.card.country{padding: 5px;}
+#serchCountry{margin-bottom: 5px;}
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 1px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+.cll{
+    border: 1px solid blue;
+    height: 10px;
+    width: 10px;
+    content: "s";
+    display: inline-block;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+.yellow{  background-color: yellow;}
+.green{  background-color: green;}
+.red{  background-color: red;}
+.buttons-html5{
+    color: white;
+    border-radius: 4px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    font-size: 100%;
+    padding: .5em 1em;
+    background: darkred;
+    line-height: normal;
+    margin-right: 10px;
+    text-decoration: none;
+}
+
+#table_id thead tr th{    border-top: 1px solid;}
+.sidebar-wrapper,.main-panel .navbar{background: darkred;color: #fff;}
+.sidebar-wrapper a,.main-panel .navbar a{color:#fff;}
+.footer {
+    background-color: darkred;
+    line-height: 20px;
+    color: #fff;
+}
+.buttons-print{font-weight: bold;
+               color: darkred;}
+#table_id_filter{margin-bottom: 10px;}
+.main-panel > .content {
+    padding: 13px 2px;
+    min-height: calc(100% - 123px);
+}
+table.dataTable tbody tr.vold.odd{background: lightgreen;}
+table.dataTable tbody tr.vold.even{background: lightgreen;}
+table.dataTable.display tbody tr.odd.vold{background: lightgreen;}
+table.dataTable.display tbody tr.even.vold{background: lightgreen;}
+.vold{background: lightgreen;}
+.heatmap-tools-bar{
+    background: darkred;
+    padding: 10px;
+    color:#fff;
+}
+.reff{    color: darkred;
+          font-weight: bold;
+}
+.get_results_report{padding: 0px !important; margin-top: 5px !important;}
+.ui-widget-header,.ui-state-active{ background: indianred;}
+#search_engin ul,#social_engin ul,#total_visitor ul{list-style: none;}
+#search_engin ul li img,#social_engin ul li img,#total_visitor ul li img{width: 80px; padding-right: 20px;}
+#search_engin ul li h4,#social_engin ul li h4{
+    color: #333333;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 30px 0 15px;
+}
+#search_engin ul li  span,#social_engin ul li  span{font-weight: bold;}
+#total_visitor ul li{color: #333333;
+                     font-size: 16px;
+                     font-weight: bold;}
+.navbar-default .navbar-brand:focus, .navbar-default .navbar-brand:hover {
+    color: #fff;
+    background-color: transparent;
+}
+
