@@ -29,8 +29,8 @@
         <link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
         <link href="css/demo.css" rel="stylesheet" />
         <link href="css/flag-css.min.css" rel="stylesheet" />
-<link rel="stylesheet" href="css/dashboard.css">
-
+        <link rel="stylesheet" href="css/dashboard.css">
+        <link rel="stylesheet" href="css/pe-icon-7-stroke.css">
 
     </head>
     <body>
@@ -40,51 +40,58 @@
                 <div class="sidebar-wrapper">
                     <div class="logo">
                         <a href="javascript:void(0)" class="simple-text">
-                           <img src="img/logo.png">Cherry
+                            Cherry
                         </a>
                     </div>
 
                     <ul class="nav">
-                        <li class="active">
-                            <a href="/dashboard">
+                        <li class="dsbrd active">
+                            <a href="/dashboard" class="tooltip">
+                                <i class="pe-7s-target"></i>
+                                <span class="tooltiptext">Online Users</span>
+                            </a>
+
+                        </li>
+                        <li class="lveacti">
+                            <a href="/clickmap" class="tooltip">
+                                <i class="pe-7s-network"></i>
+                                <span class="tooltiptext">Live Activity</span>
+                            </a>
+                        </li>
+                        <li class="rpt">
+                            <a href="/report" class="tooltip">
                                 <i class="pe-7s-graph"></i>
-                                <p>Dashboard</p>
+                                <span class="tooltiptext">Report</span>
                             </a>
                         </li>
-                        <li>
-                            <a href="/clickmap">
-                                <i class="pe-7s-user"></i>
-                                <p>Live activity</p>
+                        <li class="wrldmp">
+                            <a href="/worldmap" class="tooltip">
+                                <i class="pe-7s-world"></i>
+                                <span class="tooltiptext">World Map</span>
                             </a>
                         </li>
-                        <li>
-                            <a href="/report">
-                                <i class="pe-7s-note2"></i>
-                                <p>Report</p>
+                        <li class="dwndata">
+                            <a href="/alldata" target="_blank" class="tooltip">
+                                <i class="pe-7s-download"></i>
+                                 <span class="tooltiptext">Filter Report</span>
                             </a>
                         </li>
-                        <li>
-                            <a href="/worldmap">
-                                <i class="pe-7s-note2"></i>
-                                <p>World map</p>
-                            </a>
-                        </li>
-                       <li>
-                            <a href="/alldata" target="_blank">
+                        <li class="dmode">
+                            <a href="/dmode" class="tooltip">
                                 <i class="pe-7s-science"></i>
-                                <p>Download</p>
+                                 <span class="tooltiptext">Developer Mode</span>
                             </a>
                         </li>
-                       <li>
-                            <a href="/dmode">
-                                <i class="pe-7s-map-marker"></i>
-                                <p>Coffee mode</p>
+                        <li class="hmap">
+                            <a href="/heatmap" target="_blank" class="tooltip">
+                                <i class="pe-7s-look"></i>
+                                 <span class="tooltiptext">Heat Map</span>
                             </a>
                         </li>
-                        <li>
-                            <a href="/heatmap" target="_blank">
-                                <i class="pe-7s-bell"></i>
-                                <p>Heatmap</p>
+                        <li class="dlt">
+                            <a href="/delete" class="tooltip">
+                                <i class="pe-7s-trash"></i>
+                                 <span class="tooltiptext">Delete Tables</span>
                             </a>
                         </li>
                     </ul>
@@ -96,13 +103,13 @@
                     <div class="container-fluid">
                         <div class="navbar-header">
                             <a class="navbar-brand" href="javascript:void(0);">Live User<span class="nav-active-menu-sree">{{ activeUsers }}</span></a>
-                            
+
                         </div>
                         <div class="collapse navbar-collapse">
-                            
+
 
                             <ul class="nav navbar-nav navbar-right">
-                                
+
                             </ul>
                         </div>
                     </div>
@@ -116,29 +123,74 @@
 
                             <div class="col-md-12">
                                 <div class="card">
-                                     <div class="content">
-                                        <div v-for="(page, count) in pages">
-                                <div class="accordion button">
-                                    <div class="col-md-1 mo-x"><span class="flag flag-{{ page.split('&')[11] | lowercase}}"></span></div>
-                                    <div class="col-md-1">{{page.split('&')[10] }}</div>
-                                    <div class="col-md-1 mo-y">{{ page.split('&')[9] }}</div>
-                                    <div class="col-md-2 d-ip"><span class="{{page.split('&')[6] | lowercase}}"></span></div>
-                                    <div class="col-md-2 d-br"><span class="browser-prop {{page.split('&')[5] | lowercase }}"></span></div>
-                                    <div class="col-md-2 d-click">Resolution :{{page.split('&')[3]}} X {{page.split('&')[4]}}</div>
-                                    <div class="col-md-2" title="{{ page.split('&')[1]}}">{{ page.split('&')[15] }}</div>
-                                    <div class="col-md-2 reff" title="">:{{page.split('&')[17] }}</div>
-                                    <div class="col-md-2 reff" title="">Page view:{{page.split('&')[20] }}</div>
-                                   
+                                    <!--                                    <div class="content">
+                                                                            <div v-for="(page, count) in pages" class="innerOnedescription">
+                                                                                <div class="accordion button">
+                                                                                    <div class="col-md-1 mo-x"><span class="flag flag-{{ page.split('&')[11] | lowercase}}"></span></div>
+                                                                                    <div class="col-md-1">{{page.split('&')[10] }}</div>
+                                                                                    <div class="col-md-1 mo-y">{{ page.split('&')[9] }}</div>
+                                                                                    <div class="col-md-2 d-ip"><span class="{{page.split('&')[6] | lowercase}}"></span></div>
+                                                                                    <div class="col-md-2 d-br"><span class="browser-prop {{page.split('&')[5] | lowercase }}"></span></div>
+                                                                                    <div class="col-md-2 d-click">Resolution :{{page.split('&')[3]}} X {{page.split('&')[4]}}</div>
+                                                                                    <div class="col-md-2" title="">{{ page.split('&')[15].slice(0,25) }}...</div>
+                                                                                    <div class="col-md-2 reff" title="">{{page.split('&')[17] }}</div>
+                                                                                    <div class="col-md-2 reff" title="">Page view:{{page.split('&')[20] }}</div>
+                                                                                </div>
+                                                                                <div class="accordion button">
+                                                                                <div class="col-md-2 lang-d" title=""><span class="reff">Lang:</span>{{page.split('&')[2] }}</div>
+                                                                                <div class="col-md-2" title="{{page.split('&')[1] }}"><a href="{{page.split('&')[1] }}" target="_blank" class="changecolor">{{page.split('&')[1] }}</a></div>
+                                                                                <div class="col-md-2" title=""><span class="reff">location:</span>{{page.split('&')[22] }}</div>
+                                                                                <div class="col-md-3" title=""><span class="reff">ORG:</span>{{page.split('&')[23] }}</div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>-->
+                                    <table class="table" id="data-table">
+                                        <thead>
+                                        <td>Flag</td>
+                                        <td>Country</td>
+                                        <td>IP</td>
+                                        <td>Device</td>
+                                        <td>Browser</td>
+                                        <td>Resolution</td>
+                                        <td>Page Title</td>
+                                        <td>Visitor</td>
+                                        <td>Page View</td>
+                                        <td>Lang</td>
+                                        <td>Url</td>
+                                        <td>Map</td>
+                                        <td>ISP</td>
+                                        </thead>
+                                        <tbody>
+                                            <tr v-for="(page, count) in pages">
+                                                <td><span class="flag flag-{{ page.split('&')[11] | lowercase}}"></span></td>
+                                                <td>{{page.split('&')[10] }}</td>
+                                                <td>{{ page.split('&')[9] }}</td>
+                                                <td><span class="{{page.split('&')[6] | lowercase}}"></span></td>
+                                                <td><span class="browser-prop {{page.split('&')[5] | lowercase }}"></span></td>
+                                                <td>{{page.split('&')[3]}} X {{page.split('&')[4]}}</td>
+                                                <td title="{{ page.split('&')[15]}}">{{ page.split('&')[15].slice(0,10) }}...</td>
+                                                <td>{{page.split('&')[17] }}</td>
+                                                <td>{{page.split('&')[20] }}</td>
+                                                <td>{{page.split('&')[2] }}</td>
+
+                                                <td title="{{page.split('&')[1] }}"><a href="{{page.split('&')[1] }}" target="_blank" class="changecolor">{{page.split('&')[1].slice(0,10) }}</a>
+                                                <td><a href="http://maps.google.com/maps?q={{page.split('&')[22] }},8z" target="_blank" class="changecolor">{{page.split('&')[22] }}</a></td>
+                                                <td title="{{page.split('&')[23] }}">{{page.split('&')[23].slice(0,15) }}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
-                                 </div>
-                                    </div>
-                                </div>
+                                <!--                                new table filed test-->
+
+                                <!--                                new table filed end-->
+
+
                             </div>
                         </div>
 
 
 
-                        
+
                     </div>
                 </div>
 
@@ -203,7 +255,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.17/vue.js"></script>
     <script src="/socket.io/socket.io.js"></script>
     <script src="js/dashboard.js"></script>
- 
+
 </body>
 
 </html>

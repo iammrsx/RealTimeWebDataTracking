@@ -32,6 +32,7 @@
         <link rel="stylesheet" href="css/dashboard.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <link rel="stylesheet" href="css/pe-icon-7-stroke.css">
         <script type="text/javascript">
             var s = [];
             var sum = 0;
@@ -131,51 +132,58 @@
                 <div class="sidebar-wrapper">
                     <div class="logo">
                         <a href="javascript:void(0)" class="simple-text">
-                            <img src="img/logo.png"><span style="font-weight: bold;font-size: 18px;text-transform: uppercase;">Cherry</span>
+                            Cherry
                         </a>
                     </div>
 
                     <ul class="nav">
-                        <li class="active">
-                            <a href="/dashboard">
+                        <li class="dsbrd active">
+                            <a href="/dashboard" class="tooltip">
+                                <i class="pe-7s-target"></i>
+                                <span class="tooltiptext">Online Users</span>
+                            </a>
+
+                        </li>
+                        <li class="lveacti">
+                            <a href="/clickmap" class="tooltip">
+                                <i class="pe-7s-network"></i>
+                                <span class="tooltiptext">Live Activity</span>
+                            </a>
+                        </li>
+                        <li class="rpt">
+                            <a href="/report" class="tooltip">
                                 <i class="pe-7s-graph"></i>
-                                <p>Dashboard</p>
+                                <span class="tooltiptext">Report</span>
                             </a>
                         </li>
-                        <li>
-                            <a href="/clickmap">
-                                <i class="pe-7s-user"></i>
-                                <p>Live activity</p>
+                        <li class="wrldmp">
+                            <a href="/worldmap" class="tooltip">
+                                <i class="pe-7s-world"></i>
+                                <span class="tooltiptext">World Map</span>
                             </a>
                         </li>
-                        <li>
-                            <a href="/report">
-                                <i class="pe-7s-note2"></i>
-                                <p>Report</p>
+                        <li class="dwndata">
+                            <a href="/alldata" target="_blank" class="tooltip">
+                                <i class="pe-7s-download"></i>
+                                 <span class="tooltiptext">Filter Report</span>
                             </a>
                         </li>
-                        <li>
-                            <a href="/worldmap">
-                                <i class="pe-7s-note2"></i>
-                                <p>World map</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/alldata" target="_blank">
+                        <li class="dmode">
+                            <a href="/dmode" class="tooltip">
                                 <i class="pe-7s-science"></i>
-                                <p>Download</p>
+                                 <span class="tooltiptext">Developer Mode</span>
                             </a>
                         </li>
-                        <li>
-                            <a href="/dmode">
-                                <i class="pe-7s-map-marker"></i>
-                                <p>Coffee mode</p>
+                        <li class="hmap">
+                            <a href="/heatmap" target="_blank" class="tooltip">
+                                <i class="pe-7s-look"></i>
+                                 <span class="tooltiptext">Heat Map</span>
                             </a>
                         </li>
-                        <li>
-                            <a href="/heatmap" target="_blank">
-                                <i class="pe-7s-bell"></i>
-                                <p>Heatmap</p>
+                        <li class="dlt">
+                            <a href="/delete" class="tooltip">
+                                <i class="pe-7s-trash"></i>
+                                 <span class="tooltiptext">Delete Tables</span>
                             </a>
                         </li>
                     </ul>

@@ -83,7 +83,7 @@ div.panel {
 .mo-y{width: 100px;}
 .d-ip{width: 45px;}
 .d-br{width: 50px;}
-.d-clk{    background: darkred;
+.d-clk{    background: #2e343f;
            color: white;
            text-align: center;}
 .d-ele{background: #EECF49;}
@@ -142,7 +142,8 @@ div.panel {
 }
 .chrome{background:url(../img/chrome.png) no-repeat;background-size: 80%;}
 .firefox{background:url(../img/firefox.png) no-repeat;background-size: 80%;}
-.netscape{background:url(../img/netscape.png) no-repeat;background-size: 80%;}
+.netscape,.microsoft,.internet,.explorer{background:url(../img/netscape.png) no-repeat;background-size: 80%;}
+.safari{background:url(../img/safari.png) no-repeat;background-size: 80%;}
 .safari{background:url(../img/safari.png) no-repeat;background-size: 80%;}
 .desktop{
     background:url(../img/desktop.png) no-repeat;
@@ -191,22 +192,22 @@ tr:nth-child(even) {
     text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
     font-size: 100%;
     padding: .5em 1em;
-    background: darkred;
+    background: #2e343f;
     line-height: normal;
     margin-right: 10px;
     text-decoration: none;
 }
 
 #table_id thead tr th{    border-top: 1px solid;}
-.sidebar-wrapper,.main-panel .navbar{background: darkred;color: #fff;}
+.sidebar-wrapper,.main-panel .navbar{background: #2e343f;color: #fff;}
 .sidebar-wrapper a,.main-panel .navbar a{color:#fff;}
 .footer {
-    background-color: darkred;
+    background-color: #2e343f;
     line-height: 20px;
     color: #fff;
 }
 .buttons-print{font-weight: bold;
-               color: darkred;}
+               color: #2e343f;}
 #table_id_filter{margin-bottom: 10px;}
 .main-panel > .content {
     padding: 13px 2px;
@@ -218,11 +219,11 @@ table.dataTable.display tbody tr.odd.vold{background: lightgreen;}
 table.dataTable.display tbody tr.even.vold{background: lightgreen;}
 .vold{background: lightgreen;}
 .heatmap-tools-bar{
-    background: darkred;
+    background: #2e343f;
     padding: 10px;
     color:#fff;
 }
-.reff{    color: darkred;
+.reff{    color: #2e343f;
           font-weight: bold;
 }
 .get_results_report{padding: 0px !important; margin-top: 5px !important;}
@@ -242,5 +243,17 @@ table.dataTable.display tbody tr.even.vold{background: lightgreen;}
 .navbar-default .navbar-brand:focus, .navbar-default .navbar-brand:hover {
     color: #fff;
     background-color: transparent;
+}
+.innerOnedescription{
+    border: 1px solid #2e343f;
+    border-radius: 3px;
+    padding-top: 7px;
+    margin-bottom: 3px;
+}
+.lang-d{width:105px;}
+.changecolor{font-weight: bold;color:darkblue;}
+.changecolor:hover{font-weight: bold;color:darkblue;}
+#data-table td{
+    padding: 0px 8px;
 }
 

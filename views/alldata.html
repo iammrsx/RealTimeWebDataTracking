@@ -28,7 +28,7 @@
             <style>
                 .header{
                     height: 30px;
-                    background: darkred;
+                    background: #2e343f;
                     width: 100%;
                     margin-bottom: 21px;
                     color: #fff;
@@ -62,30 +62,37 @@
                             //                            console.log('success');
                             //                            console.log(JSON.stringify(data));
                             s = data;
-                           
+
                             var clist = '';
                             var sum = 0;
                             for (var i = 0; i < s.length; i++) {
                                 var ust = 'vnew';
-                                if(s[i].user_state === 'R'){
+                                if (s[i].user_state === 'R') {
                                     ust = 'vold';
                                 }
                                 var folds = parseInt(s[i].scrollPos / 600);
                                 if (folds === 0) {
                                     folds = 1;
                                 }
-                                clist += "<tr class='"+ust+"'><td>" + s[i].ip + "</td><td>" + s[i].country_name + "</td>\n\
-                    <td>" + s[i].devices + "</td><td>" + s[i].page_title + "</td><td>" + s[i].reffer + "</td>\n\
-<td>" + s[i].browser_app + "</td><td>" + s[i].clickonpage + "</td><td>" + folds + "</td><td>" + s[i].page_url + "</td><td>" + s[i].user_state + "</td><td>" +new Date(s[i].user_date).toDateString() + "</td></tr>";
+                                clist += "<tr class='" + ust + "'><td>" + i + "</td><td>" + s[i].ip + "</td><td>" + s[i].country_name + "</td>\n\
+                    <td>" + s[i].devices + "</td><td>" + s[i].resolution + "</td><td>" + s[i].page_title + "</td><td>" + s[i].reffer + "</td>\n\
+<td>" + s[i].browser_app + "</td><td>" + s[i].clickonpage + "</td><td>" + folds + "</td><td>" + s[i].page_url + "</td><td>" + s[i].user_state + "</td><td>" + new Date(s[i].user_date).toDateString() + "</td><td>" + s[i].lang + "</td><td>" + s[i].map + "</td><td>" + s[i].isp + "</td></tr>";
                                 sum = sum + s[i].count;
                             }
                             $("#table_id tbody").append(clist);
                             $('#table_id').DataTable({
                                 dom: 'Bfrtip',
+                                "scrollX": true,
                                 buttons: [
                                     'copy', 'csv', 'excel', 'pdf', 'print'
                                 ],
-                                pageLength: 50
+                                pageLength: 50,
+                                "bAutoWidth": false,
+                                "fnCreatedRow": function(nRow, aData, iDataIndex) {
+                                    $(nRow).children("td").css("overflow", "hidden");
+                                    $(nRow).children("td").css("white-space", "nowrap");
+                                    $(nRow).children("td").css("text-overflow", "ellipsis");
+                                },
                             });
                             $(".cssload-container").remove();
                             $("body").removeClass("ajax_loader");
@@ -94,17 +101,19 @@
                     });
                 });
             </script>
-        <body class="ajax_loader">
+        <body class="ajax_loader-">
             <div class="cssload-container">
-	<div class="cssload-whirlpool"></div>
-</div>
+                <div class="cssload-whirlpool"></div>
+            </div>
             <div class="header">Report </div>
             <table id="table_id" class="display">
                 <thead>
                     <tr>
+                        <td>Sn</td>
                         <th>IP</th>
                         <th>Country</th>
                         <th>Devices</th>
+                        <th>Page size</th>
                         <th>Title</th>
                         <th>Reffer link</th>
                         <th>Browser</th>
@@ -113,6 +122,10 @@
                         <th>URL</th>
                         <th>Visitor type</th>
                         <th>Date</th>
+                        <th>Lang</th>
+                        <th>Map</th>
+                        <th>Isp</th>
+                        
                     </tr>
                 </thead>
                 <tbody>

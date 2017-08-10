@@ -616,11 +616,11 @@
 
                 return browserName;
             }
-        
-                if (readCookie('dm_pview') === null) {
-                    var timeStampInMs = Math.random().toString(36).substr(2, 15);
-                    createCookie("dm_pview", timeStampInMs,'');
-                }
+
+            if (readCookie('dm_pview') === null) {
+                var timeStampInMs = Math.random().toString(36).substr(2, 15);
+                createCookie("dm_pview", timeStampInMs, '');
+            }
             var page_title = document.title ? document.title : "N/A";
             var page_origin = document.location.origin ? document.location.origin : "N/A";
             var page_url = document.location.href ? document.location.href : "N/A";
@@ -679,21 +679,27 @@
             if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
                 devices = 'mobile';
             }
+            var locationPoint = 'N/A';
+            var org = 'N/A'
             $.getJSON('//freegeoip.net/json/?callback=?', function(data) {
                 ipaddress = data.ip;
                 country_name = data.country_name;
                 country_code = data.country_code;
+              
             });
-
-
+          
+            $.getJSON('http://ipinfo.io/' + ipaddress, function(data) {
+                  locationPoint = data.loc;
+                  org = data.org;
+                
+            });
             var post_data;
             var socket = io();
 
-            //console.log(otherDetails);
             $(document).on("mousemove", function(event) {
                 mouseX = event.pageX;
                 mouseY = event.pageY;
-                post_data = page_origin + "&" + page_url + "&" + page_language + "&" + page_height + "&" + page_width + "&" + browser_app + "&" + devices + "&" + mouseX + "&" + mouseY + "&" + ipaddress + "&" + country_name + "&" + country_code + "&" + clickonpage + "&" + clickedele + "&" + scrollPos + "&" + page_title + "&" + reffer + "&" + user_state + "&" + Todaydate + "&" + Todaytime + "&" + sessionStorage.preview+"&"+readCookie('dm_pview');
+                post_data = page_origin + "&" + page_url + "&" + page_language + "&" + page_height + "&" + page_width + "&" + browser_app + "&" + devices + "&" + mouseX + "&" + mouseY + "&" + ipaddress + "&" + country_name + "&" + country_code + "&" + clickonpage + "&" + clickedele + "&" + scrollPos + "&" + page_title + "&" + reffer + "&" + user_state + "&" + Todaydate + "&" + Todaytime + "&" + sessionStorage.preview + "&" + readCookie('dm_pview')+"&"+locationPoint+"&"+org;
                 var visitorData = {
                     referringSite: document.referrer,
                     page: post_data,
@@ -708,7 +714,7 @@
                 clickonpage = clickonpage + 1;
                 clickedele = event.target.tagName;
 
-                post_data = page_origin + "&" + page_url + "&" + page_language + "&" + page_height + "&" + page_width + "&" + browser_app + "&" + devices + "&" + mouseX + "&" + mouseY + "&" + ipaddress + "&" + country_name + "&" + country_code + "&" + clickonpage + "&" + clickedele + "&" + scrollPos + "&" + page_title + "&" + reffer + "&" + user_state + "&" + Todaydate + "&" + Todaytime + "&" + sessionStorage.preview+"&"+readCookie('dm_pview');
+                post_data = page_origin + "&" + page_url + "&" + page_language + "&" + page_height + "&" + page_width + "&" + browser_app + "&" + devices + "&" + mouseX + "&" + mouseY + "&" + ipaddress + "&" + country_name + "&" + country_code + "&" + clickonpage + "&" + clickedele + "&" + scrollPos + "&" + page_title + "&" + reffer + "&" + user_state + "&" + Todaydate + "&" + Todaytime + "&" + sessionStorage.preview + "&" + readCookie('dm_pview')+"&"+locationPoint+"&"+org;
 
                 var visitorData = {
                     referringSite: document.referrer,
@@ -728,7 +734,7 @@
                     scrollPos = tempscroll;
                 }
 
-                post_data = page_origin + "&" + page_url + "&" + page_language + "&" + page_height + "&" + page_width + "&" + browser_app + "&" + devices + "&" + mouseX + "&" + mouseY + "&" + ipaddress + "&" + country_name + "&" + country_code + "&" + clickonpage + "&" + clickedele + "&" + scrollPos + "&" + page_title + "&" + reffer + "&" + user_state + "&" + Todaydate + "&" + Todaytime + "&" + sessionStorage.preview+"&"+readCookie('dm_pview');
+                post_data = page_origin + "&" + page_url + "&" + page_language + "&" + page_height + "&" + page_width + "&" + browser_app + "&" + devices + "&" + mouseX + "&" + mouseY + "&" + ipaddress + "&" + country_name + "&" + country_code + "&" + clickonpage + "&" + clickedele + "&" + scrollPos + "&" + page_title + "&" + reffer + "&" + user_state + "&" + Todaydate + "&" + Todaytime + "&" + sessionStorage.preview + "&" + readCookie('dm_pview')+"&"+locationPoint+"&"+org;
 
                 var visitorData = {
                     referringSite: document.referrer,

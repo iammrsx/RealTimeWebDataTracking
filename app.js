@@ -570,6 +570,10 @@ function insertIntoDB(data, id) {
         var user_date = data.split("&")[18];
         var user_time = data.split("&")[19];
         var uniqpageViewid = data.split("&")[21];
+        var lang = data.split("&")[2];
+        var map = data.split("&")[22];
+        var isp = data.split("&")[23];
+        var resolution = data.split("&")[3]+"X"+data.split("&")[4];
         var trackData = {
             visitor_id: uniqpageViewid,
             page_url: page_url,
@@ -584,6 +588,10 @@ function insertIntoDB(data, id) {
             user_state: user_state,
             user_date: new Date(user_date),
             user_time: user_time,
+            lang:lang,
+            map:map,
+            isp:isp,
+            resolution:resolution
         };
         var query = {page_url: page_url, visitor_id: uniqpageViewid};
         db.collection("data").find(query).toArray(function(err, result) {
